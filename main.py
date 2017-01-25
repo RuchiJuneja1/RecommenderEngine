@@ -3,7 +3,7 @@ import tensorflow as tf
 
 gflags = tf.app.flags
 
-# Engin
+# Engine
 gflags.DEFINE_boolean('engine', 'rnn', 'which recommender engine to use')
 
 # Environment
