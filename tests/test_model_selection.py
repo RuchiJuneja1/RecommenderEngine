@@ -24,6 +24,19 @@ def test_split_dataset_numpy():
     assert numpy.array_equal(X_test, numpy.array([[9, 10]]))
     assert numpy.array_equal(y_test, numpy.array([5]))
 
+    X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.4, seed=0)
+
+    assert len(X_train) == 3
+    assert len(X_test) == 2
+    assert len(y_train) == 3
+    assert len(y_test) == 2
+
+    assert numpy.array_equal(X_train, numpy.array([[5, 6], [1, 2], [3, 4]]))
+    assert numpy.array_equal(y_train, numpy.array([3, 1, 2]))
+
+    assert numpy.array_equal(X_test, numpy.array([[7, 8], [9, 10]]))
+    assert numpy.array_equal(y_test, numpy.array([4, 5]))
+
 
 """
 def test_split_dataset_list():
