@@ -20,7 +20,7 @@ matrix:
     - python: "nightly"
 
 before_script:
-  - make install
+  - make install_deps
 
 script:
   - uname -a
