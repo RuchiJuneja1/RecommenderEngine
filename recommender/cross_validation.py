@@ -6,8 +6,8 @@ import numpy
 from typesafety import typesrequired
 
 
-def split_dataset(data, labels, train_size=0.8, seed=0):
-    if train_size > 1.0 or train_size < 0.0:
+def split_dataset(data, labels, test_size=0.2, seed=0):
+    if test_size > 1.0 or test_size < 0.0:
         raise ValueError("(train_size + test_size) doesnt sum to one")
 
     n_rows = len(data)
@@ -23,7 +23,7 @@ def split_dataset(data, labels, train_size=0.8, seed=0):
     data = data[permutation]
     labels = labels[permutation]
 
-    n_split = int(train_size * n_rows)
+    n_split = int((1.0 - test_size) * n_rows)
 
     train_data = data[:n_split]
     test_data = data[n_split:]
