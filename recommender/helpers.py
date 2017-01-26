@@ -28,10 +28,10 @@ def remove_rare_elements(data, min_user, min_item):
     if not is_movielens(data):
         raise ValueError("error! dataframe is not from movielens")
 
-    item_activity = data.groupby('items').size()
-    data = data[numpy.in1d(data.items, item_activity[item_activity >= min_item].index)]
+    item_activity = data.groupby('item').size()
+    data = data[numpy.in1d(data.item, item_activity[item_activity >= min_item].index)]
 
-    user_activity = data.groupby('users').size()
-    data = data[numpy.in1d(data.users, user_activity[user_activity >= min_user].index)]
+    user_activity = data.groupby('user').size()
+    data = data[numpy.in1d(data.user, user_activity[user_activity >= min_user].index)]
 
     return data
