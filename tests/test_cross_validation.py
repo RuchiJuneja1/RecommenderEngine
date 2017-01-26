@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import pytest
 import numpy
+import pandas
 
 from recommender.cross_validation import *
 
@@ -11,7 +11,7 @@ def test_split_dataset_numpy():
     X = numpy.array([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
     y = numpy.array([1, 2, 3, 4, 5])
 
-    X_train, X_test, y_train, y_test = split_dataset(X, y, seed=0)
+    X_train, X_test, y_train, y_test = split_dataset(X, y, test_size=0.2, seed=0)
 
     assert len(X_train) == 4
     assert len(X_test) == 1
@@ -36,3 +36,12 @@ def test_split_dataset_numpy():
 
     assert numpy.array_equal(X_test, numpy.array([[7, 8], [9, 10]]))
     assert numpy.array_equal(y_test, numpy.array([4, 5]))
+
+
+def test_split_dataset_dataframe():
+    X = pandas.DataFrame(numpy.random.randn(8, 3), columns=list('ABC'))
+
+    X_train, X_test = split_dataframe(X, test_size=0.25)
+
+    assert X_train.shape[0] == 6
+    assert X_test.shape[0] == 2
