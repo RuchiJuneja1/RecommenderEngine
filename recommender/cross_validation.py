@@ -3,8 +3,6 @@
 
 import numpy
 
-from typesafety import typesrequired
-
 
 def split_dataset(data, labels, test_size=0.2, seed=0):
     if test_size > 1.0 or test_size < 0.0:
