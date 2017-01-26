@@ -1,4 +1,5 @@
 pytest
-sphinx
 numpy
 tensorflow
+type_safety
+pandas

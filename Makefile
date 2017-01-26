@@ -1,4 +1,4 @@
-install:
+install_deps:
 	pip install -U -r requirements.txt
 
 test:
