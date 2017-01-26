@@ -34,10 +34,7 @@ def test_load_data():
 
     assert len(datafile) == 100
 
-    assert "user" in datafile.columns
-    assert 'item' in datafile.columns
-    assert 'rate' in datafile.columns
-    assert 'st' in datafile.columns
+    assert recommender.helpers.is_movielens(datafile)
 
     assert datafile.get_value(0, "user") == 0
     assert datafile.get_value(0, "item") == 1192
