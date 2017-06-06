@@ -1,4 +1,6 @@
 # RecommenderEngine
+## THIS CURRENTLY ISNT WORKING, STILL IN DEVELOPMENT
+
 A TensorFlow-based Recommender Engine
 
 ## Datasets
